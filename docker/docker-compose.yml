@@ -1,0 +1,14 @@
+services:
+  homescan:
+    build:
+      context: ..
+      dockerfile: docker/Dockerfile
+    image: homescan
+    env_file: ../.env
+    volumes:
+      - homescan_data:/app/data
+    network_mode: host
+    restart: unless-stopped
+
+volumes:
+  homescan_data:
